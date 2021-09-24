@@ -8,7 +8,8 @@ if (mode=="IRS"){
 ####################################
 ### PROPAGATION - IRS
 d=length(input)
-rr<-matrix(runif(N*d,0,1-corr),ncol=d)
+rr<-lhsDesign(N,d)$design*(1-corr)
+#rr<-matrix(runif(N*d,0,1-corr),ncol=d)
 Z0<-pbapply(rr,1,PROPAG_fun,N,input,FUN,choice_opt,param_opt)
 
 }
